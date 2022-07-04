@@ -19,7 +19,7 @@ yarn add @solana/spl-token
 
 1. Clone the project:
 ```shell
-git clone https://github.com/solana-labs/solana-program-library.git
+git clone https://github.com/owaistahir3/Solana-SPL.git
 ```
 
 2. Navigate to the library:
