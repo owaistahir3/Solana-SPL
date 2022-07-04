@@ -1,0 +1,17 @@
+[0m[38;5;8m[[0m2022-07-04T07:10:39.414498954Z [0m[32mINFO [0m solana_test_validator[0m[38;5;8m][0m solana-validator 1.9.2 (src:f58b87be; feat:4100269022)
+[0m[38;5;8m[[0m2022-07-04T07:10:39.414529356Z [0m[32mINFO [0m solana_test_validator[0m[38;5;8m][0m Starting validator with: ArgsOs {
+        inner: [
+            "solana-test-validator",
+            "--bpf-program",
+            "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+            "../../target/deploy/spl_associated_token_account.so",
+            "--bpf-program",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "../../target/deploy/spl_token_2022.so",
+            "--reset",
+            "--quiet",
+        ],
+    }
+[0m[38;5;8m[[0m2022-07-04T07:10:39.414569859Z [0m[33mWARN [0m solana_perf[0m[38;5;8m][0m CUDA is disabled
+[0m[38;5;8m[[0m2022-07-04T07:10:39.414575345Z [0m[32mINFO [0m solana_perf[0m[38;5;8m][0m AVX detected
+[0m[38;5;8m[[0m2022-07-04T07:10:39.414578165Z [0m[32mINFO [0m solana_perf[0m[38;5;8m][0m AVX2 detected
