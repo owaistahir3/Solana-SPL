@@ -1,7 +1,7 @@
 import { clusterApiUrl, Connection, Keypair, LAMPORTS_PER_SOL, Transaction, SystemProgram, sendAndConfirmTransaction } from '@solana/web3.js';
 import { createMint, getOrCreateAssociatedTokenAccount, mintTo, transfer } from '../src'; // @FIXME: replace with @solana/spl-token
 
-(async () => {
+
     // Connect to cluster
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
 
@@ -16,25 +16,9 @@ import { createMint, getOrCreateAssociatedTokenAccount, mintTo, transfer } from 
     // Generate a new wallet to receive newly minted token
     const toWallet = Keypair.generate();
 
-    // Transfering some SOL to the new wallet
-    const transaction = new Transaction().add(
-        SystemProgram.transfer({
-          fromPubkey: fromWallet.publicKey,
-          toPubkey: toWallet.publicKey,
-          lamports: LAMPORTS_PER_SOL / 2,
-        }),
-      );
-    
-      // Sign transaction, broadcast, and confirm
-      let signature = await sendAndConfirmTransaction(
-        connection,
-        transaction,
-        [fromWallet],
-      );
-      console.log('SIGNATURE', signature);
-
     // Create new token mint
     const mint = await createMint(connection, fromWallet, fromWallet.publicKey, null, 9);
+    console.log('Mint Address:', mint);
 
     // Get the token account of the fromWallet address, and if it does not exist, create it
     const fromTokenAccount = await getOrCreateAssociatedTokenAccount(
@@ -48,7 +32,7 @@ import { createMint, getOrCreateAssociatedTokenAccount, mintTo, transfer } from 
     const toTokenAccount = await getOrCreateAssociatedTokenAccount(connection, fromWallet, mint, toWallet.publicKey);
 
     // Mint 1 new token to the "fromTokenAccount" account we just created
-    signature = await mintTo(
+    let signature = await mintTo(
         connection,
         fromWallet,
         mint,
@@ -71,15 +55,4 @@ import { createMint, getOrCreateAssociatedTokenAccount, mintTo, transfer } from 
     );
     console.log('transfer tx:', signature);
 
-     // Transfer the token back to the "fromTokenAccount" we just created
-     signature = await transfer(
-        connection,
-        toWallet,
-        toTokenAccount.address,
-        fromTokenAccount.address,
-        toWallet.publicKey,
-        1000000000,
-        []
-    );
-    console.log('transferback tx:', signature);
-})();
+export {toWallet, fromWallet, connection, toTokenAccount, fromTokenAccount};
