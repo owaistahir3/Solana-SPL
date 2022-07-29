@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.mjs","sources":["../../../../src/plugins/tokenModule/constants.ts"],"sourcesContent":["import { PublicKey } from '@solana/web3.js';\n\nexport const WRAPPED_SOL_MINT = new PublicKey(\n  'So11111111111111111111111111111111111111112'\n);\n"],"names":["WRAPPED_SOL_MINT","PublicKey"],"mappings":";;MAEaA,gBAAgB,GAAG,IAAIC,SAAJ,CAC9B,6CAD8B;;;;"}
