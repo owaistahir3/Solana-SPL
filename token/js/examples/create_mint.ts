@@ -6,9 +6,9 @@ import * as anchor from '@project-serum/anchor';
 import { findMetadataPda } from '@metaplex-foundation/js';
 
 
-const INITIALIZE = true;
+const INITIALIZE = false;
 
-//export async function tokenSetup(){
+export async function tokenSetup(){
     // Connect to cluster
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
 
@@ -82,4 +82,7 @@ const INITIALIZE = true;
     const tx = new Transaction();
     tx.add(ix);
     signature = await sendAndConfirmTransaction(connection, tx, [fromWallet]);
-    
+
+}
+
+tokenSetup();

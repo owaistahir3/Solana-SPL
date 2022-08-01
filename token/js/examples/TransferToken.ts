@@ -1,9 +1,12 @@
 import { clusterApiUrl, Connection, Keypair, LAMPORTS_PER_SOL, Transaction, SystemProgram, sendAndConfirmTransaction } from '@solana/web3.js';
 import { createMint, getOrCreateAssociatedTokenAccount, mintTo, transfer } from '../src'; // @FIXME: replace with @solana/spl-token
 
-import {tokenSetup} from './create_mint_and_transfer_tokens';
+import {tokenSetup} from './create_mint';
 
 tokenSetup().then((res)=>{ console.log('res',res)}).catch(err=>{console.log(err)});
+
+const abc =new tokenSetup();
+
 // Transfering some SOL to the new wallet
 const transaction = new Transaction().add(
     SystemProgram.transfer({
